@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日交易员情报台</title>
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<div class="wrap">
+
+  <!-- 页头：标题 / 日期 / 市场状态倒计时（JS 实时计算） -->
+  <header>
+    <div>
+      <h1 id="h-title">📊 每日交易员情报台</h1>
+      <div class="date" id="h-date"></div>
+    </div>
+    <div class="session" id="h-session"></div>
+  </header>
+
+  <!-- 控制条（吸顶）：市场 Tab + 情绪筛选 + 预计阅读时长 -->
+  <div class="controls">
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-m="all">全部</button>
+      <button class="tab" data-m="cn">🇨🇳 中国</button>
+      <button class="tab" data-m="kr">🇰🇷 韩国</button>
+      <button class="tab" data-m="us">🇺🇸 美国</button>
+    </div>
+    <div class="chips" id="chips">
+      <span class="chips-label">方向</span>
+      <button class="chip active" data-s="all">全部</button>
+      <button class="chip" data-s="up">🔴 利好</button>
+      <button class="chip" data-s="down">🟢 利空</button>
+      <button class="chip" data-s="neu">⚪ 中性</button>
+      <span class="reading-time" id="reading-time"></span>
+    </div>
+  </div>
+
+  <!-- ⚡ 30秒速览 -->
+  <section>
+    <div class="sec-title">⚡ 30 秒速览</div>
+    <div class="quick" id="quick-list"></div>
+  </section>
+
+  <!-- 📈 市场数据卡（中韩美 11 项） -->
+  <section>
+    <div class="sec-title">📈 市场数据<span class="asof" id="market-asof"></span></div>
+    <div id="market-cards"></div>
+  </section>
+
+  <!-- 🧭 板块动态（中国 · 最近交易日） -->
+  <section data-market="cn">
+    <div class="sec-title">🧭 板块动态 · 中国<span class="asof" id="sectors-asof"></span></div>
+    <div class="card" id="sectors-body"></div>
+  </section>
+
+  <!-- 📊 板块涨跌榜 TOP10 -->
+  <section data-market="cn">
+    <div class="sec-title">📊 板块涨跌榜 TOP10</div>
+    <div class="card" id="top10-body"></div>
+  </section>
+
+  <!-- 🌡 情绪温度计 -->
+  <section data-market="cn">
+    <div class="sec-title">🌡 情绪温度计</div>
+    <div class="card" id="gauge-body"></div>
+  </section>
+
+  <!-- 📆 事件与风险（宏观日历 / 解禁 / 业绩预告雷区） -->
+  <section data-market="cn">
+    <div class="sec-title">📆 本周事件与风险</div>
+    <div class="card" style="margin-bottom:8px">
+      <div class="sub" style="margin-top:0">宏观数据日历</div>
+      <div id="cal-macro"></div>
+    </div>
+    <div class="card" style="margin-bottom:8px">
+      <div class="sub" style="margin-top:0">解禁日历</div>
+      <div id="cal-unlock"></div>
+    </div>
+    <div class="card">
+      <div class="sub" style="margin-top:0">业绩预告雷区</div>
+      <div id="cal-earnings"></div>
+    </div>
+  </section>
+
+  <!-- 🆕 昨日新增（全量，默认展开） -->
+  <section>
+    <details open data-countable>
+      <summary>🆕 昨日新增 <span class="cnt" data-tpl="全天 + 凌晨 · {n} 条"></span></summary>
+      <div class="inner"><div class="list" id="yesterday-list" style="margin-top:8px"></div></div>
+    </details>
+  </section>
+
+  <!-- 📅 本周周报（精选加工累积 · 4 类分节，默认展开） -->
+  <section>
+    <details open data-countable>
+      <summary>📅 本周周报 <span class="cnt" data-tpl="精选加工累积 · {n} 条"></span></summary>
+      <div class="inner" id="week-body"></div>
+    </details>
+  </section>
+
+  <!-- 🗂 上周回顾（同构 4 类，默认折叠） -->
+  <section>
+    <details data-countable>
+      <summary>🗂 上周回顾 <span class="cnt" data-tpl="{n} 条"></span></summary>
+      <div class="inner" id="lastweek-body"></div>
+    </details>
+  </section>
+
+  <!-- 📝 交易计划与复盘（localStorage 本机持久化） -->
+  <section>
+    <div class="sec-title">📝 交易计划与复盘</div>
+    <div class="card journal">
+      <div class="label">今日计划（<span id="j-date"></span> · 盘前写）</div>
+      <textarea id="j-plan" placeholder="今日关注什么主线 / 计划买卖什么 / 仓位与止损纪律……"></textarea>
+      <div class="label">盘后复盘（收盘后写）</div>
+      <textarea id="j-review" placeholder="执行了几成计划 / 对错在哪 / 明天改什么……"></textarea>
+      <div class="ops">
+        <button class="btn" id="j-save">保存</button>
+        <button class="btn ghost" id="j-export">导出 Markdown</button>
+        <span class="save-tip" id="j-tip"></span>
+      </div>
+      <div class="journal-history" id="j-history"></div>
+    </div>
+  </section>
+
+  <!-- 一句话总结 -->
+  <div class="summ" id="summary-text"></div>
+
+  <!-- 页脚 -->
+  <div class="footer" id="footer"></div>
+</div>
+
+<button class="to-top" id="to-top" title="返回顶部">↑</button>
+
+<!-- 数据层（免服务器、file:// 直开可用；每日自动化只更新这 4 个文件） -->
+<script src="data/meta.js"></script>
+<script src="data/market.js"></script>
+<script src="data/brief.js"></script>
+<script src="data/calendar.js"></script>
+<!-- 渲染引擎 -->
+<script src="assets/js/app.js"></script>
+</body>
+</html>
