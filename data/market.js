@@ -17,73 +17,78 @@
  */
 window.TID_MARKET = {
   cards: [
-    { name: "上证指数",       change: 1.47, market: "cn" },
-    { name: "深证成指",       change: 1.86, market: "cn" },
-    { name: "创业板指",       change: 1.32, market: "cn" },
-    { name: "KOSPI",          change: -4.90, market: "kr" },
-    { name: "KOSDAQ",         change: -5.56, market: "kr" },
-    { name: "三星电子",       change: -6.30, market: "kr" },
-    { name: "SK海力士",       change: -10.13, market: "kr" },
-    { name: "现代汽车",       change: -1.73, market: "kr" },
-    { name: "纳斯达克",       change: -0.83, market: "us" },
-    { name: "标普500",        change: -0.17, market: "us" },
-    { name: "道琼斯",         change: 0.49, market: "us" },
-    { name: "英伟达",         change: 3.43, market: "us" },
-    { name: "特斯拉",         change: -1.77, market: "us" },
-    { name: "WTI 原油",       change: -0.91, market: "us" },
-    { name: "COMEX黄金",      change: 3.74, market: "us" }
+    { name: "上证指数",       change: 0.57, market: "cn" },
+    { name: "深证成指",       change: -0.24, market: "cn" },
+    { name: "创业板指",       change: -0.55, market: "cn" },
+    { name: "KOSPI",          change: -0.57, market: "kr" },
+    { name: "KOSDAQ",         change: 0.26, market: "kr" },
+    { name: "三星电子",       change: 0.87, market: "kr" },
+    { name: "SK海力士",       change: -5.08, market: "kr" },
+    { name: "现代汽车",       change: -2.13, market: "kr" },
+    { name: "纳斯达克",       change: -0.06, market: "us" },
+    { name: "标普500",        change: -0.18, market: "us" },
+    { name: "道琼斯",         change: -0.85, market: "us" },
+    { name: "英伟达",         change: -0.10, market: "us" },
+    { name: "特斯拉",         change: -0.63, market: "us" },
+    { name: "WTI 原油",       change: 1.32, market: "us" },
+    { name: "COMEX黄金",      change: 0.58, market: "us" }
   ],
   sectors: {
-    asOf: "8/5 收盘",
+    asOf: "8/7 盘中",
     leaders: [
-      { name: "贵金属",     change: 7.87 },
-      { name: "高带宽内存", change: 7.77 },
-      { name: "中芯概念",   change: 6.82 },
-      { name: "MLCC",       change: 6.74 },
-      { name: "存储芯片",   change: 6.32 }
+      { name: "玻璃玻纤",     change: 8.20 },
+      { name: "元件",         change: 7.46 },
+      { name: "医疗服务",     change: 6.09 },
+      { name: "非金属材料",   change: 5.78 },
+      { name: "生物制品",     change: 3.89 }
     ],
     laggards: [
-      { name: "通信",     change: -1.65 },
-      { name: "银行",     change: -1.14 },
-      { name: "食品饮料", change: -1.07 }
+      { name: "在线教育",   change: -0.73 },
+      { name: "电力改革",   change: -0.66 },
+      { name: "电力",       change: -0.65 },
+      { name: "教育信息化", change: -0.59 },
+      { name: "教育",       change: -0.54 }
     ],
     flows: [
-      { name: "半导体",   amount: 130.3 },
-      { name: "工业金属", amount: 65.1 },
-      { name: "元件",     amount: 57.8 }
+      { name: "元件",     amount: 98.2 },
+      { name: "半导体",   amount: 55.6 },
+      { name: "通信设备", amount: 52.0 }
     ],
-    rotation: "存量调仓迁徙：资金从红利防御（银行/电力/白酒）切向「科技成长+资源涨价」双主线，半导体净流入130亿；⚠ 8/6 韩股存储链重挫（SK海力士-10%/三星-6.3%），需观察对 A股半导体传导"
+    rotation: "风格切向「顺周期+半导体材料」：玻璃玻纤/元件/CRO/PCB/靶材领涨，资金从电新（净流出108亿）/软件/教育/电力撤离；存储链受隔夜美股重挫压制（西数-13%），SK海力士盘中-5%传导A股半导体承压"
   },
   top10: {
-    asOf: "8/5 收盘",
+    asOf: "8/7 盘中",
     gainers: [
-      { name: "贵金属",     change: 7.87 },
-      { name: "高带宽内存", change: 7.77 },
-      { name: "中芯概念",   change: 6.82 },
-      { name: "MLCC",       change: 6.74 },
-      { name: "存储芯片",   change: 6.32 },
-      { name: "小金属",     change: 6.23 },
-      { name: "光刻机",     change: 5.97 },
-      { name: "电子(申万)", change: 5.66 },
-      { name: "有色金属(申万)", change: 5.34 },
-      { name: "稀土",       change: 4.95 }
+      { name: "电子布",     change: 8.24 },
+      { name: "玻璃玻纤",   change: 8.20 },
+      { name: "CRO",        change: 8.10 },
+      { name: "元件",       change: 7.46 },
+      { name: "电子树脂",   change: 6.59 },
+      { name: "博通概念",   change: 6.58 },
+      { name: "靶材",       change: 6.27 },
+      { name: "锗镓概念",   change: 6.23 },
+      { name: "医疗服务",   change: 6.09 },
+      { name: "非金属材料", change: 5.78 }
     ],
     losers: [
-      { name: "通信",     change: -1.65 },
-      { name: "银行",     change: -1.14 },
-      { name: "食品饮料", change: -1.07 }
+      { name: "在线教育",   change: -0.73 },
+      { name: "电力改革",   change: -0.66 },
+      { name: "电力",       change: -0.65 },
+      { name: "教育信息化", change: -0.59 },
+      { name: "教育",       change: -0.54 }
     ]
   },
   gauge: {
-    asOf: "8/5 收盘",
-    limitUp: 104,
+    asOf: "8/6 收盘（8/7午盘涨停60家）",
+    limitUp: 79,
     limitDown: 1,
-    breakRate: 29.7,
+    breakRate: 20.2,
     ladder: [
-      { height: "8板",   stocks: ["传智教育"] },
-      { height: "4板",   stocks: ["德龙汇能", "豪尔赛"] },
-      { height: "3板",   stocks: ["欣天科技", "风范股份"] },
-      { height: "8天4板", stocks: ["汇绿生态", "海星股份"] }
+      { height: "10板",   stocks: ["爱丽家居"] },
+      { height: "5板",    stocks: ["豪尔赛"] },
+      { height: "4板",    stocks: ["欣天科技", "风范股份"] },
+      { height: "9天5板", stocks: ["汇绿生态"] },
+      { height: "5天4板", stocks: ["宝鼎科技"] }
     ]
   }
 };
