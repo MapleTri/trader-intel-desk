@@ -14,26 +14,28 @@
  */
 window.TID_BRIEF = {
   quick: [
-    { sentiment: "up", text: "A股8/5放量普涨：沪指+1.47%、科创50+4.78%，成交2.66万亿，半导体+有色双主线，涨停104家" },
-    { sentiment: "down", text: "隔夜美股分化：道指新高、纳指-0.83%；三星盘中-5.89%——存储链高位分歧，黄金避险大涨破4300美元" },
-    { sentiment: "neu", text: "今日关注：周五美国非农、周六中国进出口/外储；8连板传智教育高位分歧，连板晋级率降至26%" }
+    { sentiment: "up", text: "A股8/6缩量重返3900：沪指+0.57%3连阳、成交2.53万亿缩量，煤炭涨停潮+爱丽家居10连板；8/7早盘延续普涨（创业板半日+1.75%）" },
+    { sentiment: "down", text: "隔夜美股存储重挫：西数-13%、闪迪-7%、SK海力士ADR-5%，道指终结5连涨；特朗普签多晶硅232关税令" },
+    { sentiment: "neu", text: "今日关注：20:30美国非农（预期+9.1万）；中国7月进出口超预期已落地（出口+17.8%）；韩股SK海力士盘中-5%——存储链联动承压" }
   ],
 
   yesterday: [
-    { date: "08-06", title: "隔夜美股分化：道指+0.49%续创新高、纳指-0.83%", tag: "利空 科技·半导体", market: "us", sentiment: "down" },
-    { date: "08-06", title: "黄金大涨：COMEX金+3.74%破4300美元，ADP就业放缓降温加息担忧", tag: "利好 黄金·贵金属", market: "us", sentiment: "up" },
-    { date: "08-06", title: "韩股存储链回调：三星盘中-5.89%、SK海力士ADR -2.17%", tag: "利空 存储链", market: "kr", sentiment: "down" },
-    { date: "08-05", title: "A股放量普涨：科创50+4.78%、成交2.66万亿、涨停104家", tag: "利好 科技·有色", market: "cn", sentiment: "up" },
-    { date: "08-05", title: "三大存储原厂2027年DRAM/HBM产能售罄、HBF高带宽闪存标准发布", tag: "利好 存储链", market: "cn", sentiment: "up" },
-    { date: "08-05", title: "SEMI：2026全球半导体设备销售1659亿美元+23.2%创新高", tag: "利好 半导体设备", market: "cn", sentiment: "up" },
-    { date: "08-05", title: "中际旭创-7.27%、成交675亿创单日历史天量", tag: "利空 光模块", market: "cn", sentiment: "down" },
-    { date: "08-05", title: "申通快递被国家邮政局立案调查", tag: "利空 快递", market: "cn", sentiment: "down" },
-    { date: "08-05", title: "宇树科技IPO初步询价（73天过会最快纪录）", tag: "利好 人形机器人", market: "cn", sentiment: "up" },
-    { date: "08-05", title: "荣昌生物预盈47亿扭亏、百济神州Q2收入+30%", tag: "利好 创新药", market: "cn", sentiment: "up" }
+    { date: "08-07", title: "隔夜美股存储重挫：道指-0.85%终结5连涨、西数-13%/闪迪-7%/SK海力士ADR-5%", tag: "利空 存储链", market: "us", sentiment: "down" },
+    { date: "08-07", title: "特朗普签行政令：进口多晶硅及衍生产品加征232关税（最低进口价+额外关税）", tag: "利空 光伏·多晶硅", market: "us", sentiment: "down" },
+    { date: "08-07", title: "中国7月进出口超预期：前7月30.13万亿+17.3%，7月出口+17.8%、进口+21.2%", tag: "利好 出口链·机电", market: "cn", sentiment: "up" },
+    { date: "08-06", title: "A股缩量重返3900：沪指+0.57%3连阳、成交2.53万亿、涨停79家", tag: "利好 煤炭·半导体材料", market: "cn", sentiment: "up" },
+    { date: "08-06", title: "商务部公布多项对美反制清单：无人机出口管制、6家美实体列入", tag: "利好 无人机·军工", market: "cn", sentiment: "up" },
+    { date: "08-06", title: "财政部等三部门：锂原电池/锂离子蓄电池分步恢复征收消费税", tag: "利空 锂电池", market: "cn", sentiment: "down" },
+    { date: "08-06", title: "长鑫存储拒绝苹果压价：DRAM报价不低于三星/海力士，华为称手机或涨价", tag: "利好 存储链", market: "cn", sentiment: "up" },
+    { date: "08-06", title: "牧原上半年预亏57-67亿由盈转亏、新希望预亏16-18亿", tag: "利空 生猪养殖", market: "cn", sentiment: "down" },
+    { date: "08-06", title: "百济神州净利32.71亿+627%上调指引、百奥赛图预增392%-413%", tag: "利好 创新药", market: "cn", sentiment: "up" },
+    { date: "08-06", title: "宇树科技IPO定价150.8元/股；爱丽家居10连板但半年报预亏", tag: "中性 人形机器人·高位股", market: "cn", sentiment: "neu" }
   ],
 
   week: {
     policy: [
+      { date: "08-06", title: "商务部公布多项对美反制清单", analysis: "无人机及关键零部件出口管制+6家美实体列入，贸易摩擦从关税延伸至出口管制与实体清单", tag: "利好 无人机·军工", market: "cn", sentiment: "up" },
+      { date: "08-06", title: "电池消费税分步恢复征收", analysis: "锂原电池/锂离子蓄电池恢复征收，电池成本中枢上移", tag: "利空 锂电池", market: "cn", sentiment: "down" },
       { date: "08-04", title: "央行 5000 亿买断式逆回购加量", analysis: "流动性宽松+财政协同信号", tag: "利好 债市", market: "cn", sentiment: "up" },
       { date: "08-03", title: "证监会涉港 10 项举措", analysis: "跨境资金通道拓宽，支持港股境内上市、ETF快速注册", tag: "利好 券商·跨境金融", market: "cn", sentiment: "up" },
       { date: "08-03", title: "八部门科技金融政策", analysis: "设国家创投引导基金，支持优质未盈利科技企业上市", tag: "利好 创投·科技成长", market: "cn", sentiment: "up" },
@@ -41,6 +43,8 @@ window.TID_BRIEF = {
       { date: "08-03", title: "集成电路布图条例修订", analysis: "加大侵权赔偿力度，10/15施行", tag: "利好 半导体", market: "cn", sentiment: "up" }
     ],
     industry: [
+      { date: "08-06", title: "A股缩量重返3900：煤炭涨停潮+爱丽家居10连板", analysis: "资金从电新/软件/教育切向通信设备/电子化学品/元件/煤炭；缩量突破有效性待验证，3900点攻防为焦点", tag: "利好 煤炭·通信设备", market: "cn", sentiment: "up" },
+      { date: "08-06", title: "长鑫存储拒绝苹果压价", analysis: "DRAM报价不低于三星/海力士，存储议价权向中国转移，涨价传导至终端", tag: "利好 存储链", market: "cn", sentiment: "up" },
       { date: "08-05", title: "存储超级周期确认：2027年DRAM/HBM产能售罄", analysis: "三大原厂产能售罄+HBF标准落地，NAND 8月敲定配额；Q2三星DRAM市占39%登顶", tag: "利好 存储链", market: "cn", sentiment: "up" },
       { date: "08-05", title: "A股科技+资源双主线共振", analysis: "电子+5.66%、有色+5.34%、半导体主力净流入130亿；存量调仓红利→成长+涨价", tag: "利好 半导体·有色", market: "cn", sentiment: "up" },
       { date: "08-04", title: "A股科技大反弹（通信+9.41%）", analysis: "超跌修复+外围共振，成交2.23万亿放量", tag: "利好 算力·光模块", market: "cn", sentiment: "up" },
@@ -49,6 +53,8 @@ window.TID_BRIEF = {
       { date: "08-03", title: "Q3 PC DRAM 预计涨价 15-20%", analysis: "供应短缺延续涨价周期（TrendForce）", tag: "利好 存储链", market: "cn", sentiment: "up" }
     ],
     company: [
+      { date: "08-06", title: "百济神州净利+627%、百奥赛图预增392%-413%", analysis: "创新药中报兑现潮，出海逻辑验证，百济上调全年指引至449-462亿", tag: "利好 创新药", market: "cn", sentiment: "up" },
+      { date: "08-06", title: "牧原预亏57-67亿由盈转亏", analysis: "生猪均价10.4元/公斤-28%，猪周期底部确认、行业去产能加速", tag: "利空 生猪养殖", market: "cn", sentiment: "down" },
       { date: "08-05", title: "SpaceX首份财报-13.6%、AMD Q3指引不及预期", analysis: "海外AI龙头财报兑现度分化，支出超预期引发估值审视", tag: "利空 AI硬件映射", market: "us", sentiment: "down" },
       { date: "08-05", title: "荣昌生物预盈47亿扭亏", analysis: "RC148授权收入大增，创新药出海兑现", tag: "利好 创新药", market: "cn", sentiment: "up" },
       { date: "08-04", title: "中微预增 282%-311%", analysis: "上半年净利27-29亿，半导体设备国产替代放量", tag: "利好 半导体设备", market: "cn", sentiment: "up" },
@@ -59,6 +65,9 @@ window.TID_BRIEF = {
       { date: "08-03", title: "药明上调 2026 指引至 585-605 亿", analysis: "CXO景气回升，出海加速", tag: "利好 CXO", market: "cn", sentiment: "up" }
     ],
     overseas: [
+      { date: "08-07", title: "隔夜美股存储重挫：西数-13%、闪迪-7%", analysis: "道指-0.85%终结5连涨、费半仅+0.33%；存储高位分歧加剧，A股存储链短线承压联动", tag: "利空 存储链", market: "us", sentiment: "down" },
+      { date: "08-07", title: "特朗普签多晶硅232关税行政令", analysis: "进口多晶硅及衍生产品加最低进口价+额外关税，贸易摩擦扩散至新能源材料", tag: "利空 光伏出口链", market: "us", sentiment: "down" },
+      { date: "08-07", title: "中国7月进出口超预期", analysis: "前7月30.13万亿+17.3%，7月出口+17.8%、进口+21.2%，外需韧性+内需改善", tag: "利好 出口链·机电", market: "cn", sentiment: "up" },
       { date: "08-06", title: "隔夜美股分化：道指新高、纳指-0.83%、黄金+3.74%", analysis: "ADP就业放缓降温9月加息预期，避险领涨、存储尾盘跳水（闪迪/西数-5.4%）", tag: "利好 黄金；利空 科技", market: "us", sentiment: "neu" },
       { date: "08-05", title: "韩股存储链高位回调：三星盘中-5.89%", analysis: "KOSPI两日+5.5%后分歧加大，A股存储链短线承压联动", tag: "利空 存储链", market: "kr", sentiment: "down" },
       { date: "08-04", title: "韩股反弹：KOSPI +1.62%，SK海力士ADR +8.17%", analysis: "存储风向标回暖，传导A股存储链", tag: "利好 存储链", market: "kr", sentiment: "up" },
@@ -92,5 +101,5 @@ window.TID_BRIEF = {
     ]
   },
 
-  summary: "A股放量普涨确认反弹（科创50两日+10%），但隔夜美股科技回调+韩股存储链高位分歧（三星盘中-5.9%）+黄金避险大涨破4300美元——今日关注半导体/存储链联动与8连板分歧，周五非农或定9月加息路径。"
+  summary: "A股缩量重返3900（3连阳）但量能未跟上、风格切向煤炭/半导体材料等顺周期；隔夜美股存储重挫（西数-13%）+特朗普多晶硅关税令压制科技链，韩股SK海力士盘中-5%续跌——存储链高位分歧主战场，今日20:30美国非农定9月加息路径，3900点攻防+存储链企稳是午后焦点。"
 };
