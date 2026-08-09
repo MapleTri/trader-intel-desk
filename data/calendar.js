@@ -9,28 +9,36 @@
  * - earnings[]: 业绩预告雷区 { date:"MM-DD", name:"XX股份", summary:"预减 50%+", sentiment:"down", market:"cn" }
  */
 window.TID_CALENDAR = {
-  asOf: "2026-08-07",
+  asOf: "2026-08-09",
   macro: [
-    { date: "08-07", name: "中国7月进出口（已发布）", expect: "出口预期 +24.5%", prev: "实际：出口+17.8%、进口+21.2%", market: "cn" },
-    { date: "08-07", name: "美国7月非农（今晚20:30）", expect: "预期 +9.1万", prev: "前值 +5.7万", market: "us" },
-    { date: "08-07", name: "中国7月外汇储备", expect: "—", prev: "前值 34160亿美元", market: "cn" },
-    { date: "08-09", name: "中国7月CPI/PPI", expect: "CPI预期 +0.91% / PPI预期 +3.80%", prev: "CPI前值 +1.00% / PPI前值 +4.10%", market: "cn" },
-    { date: "08-09", name: "CIES第十六届国际储能大会（8/9-11）", expect: "—", prev: "—", market: "cn" },
-    { date: "08-09", name: "中国1-7月社融/M2/新增贷款", expect: "—", prev: "可能发布", market: "cn" }
+    { date: "08-10", name: "日本央行7月货币政策意见摘要", expect: "关注政策路径暗示", prev: "7月维持政策不变", market: "us" },
+    { date: "08-10", name: "中国7月M2/社融/新增信贷", expect: "社融预测1.15万亿", prev: "可能发布", market: "cn" },
+    { date: "08-11", name: "澳洲联储利率决议", expect: "预期维持4.35%", prev: "—", market: "us" },
+    { date: "08-12", name: "美国7月CPI（重磅，定价9月加息路径）", expect: "彭博预期 同比3.3%/核心2.4%", prev: "前值 同比3.9%", market: "us" },
+    { date: "08-12", name: "腾讯二季报（20:00，港股头号焦点）", expect: "关注AI资本开支/游戏/视频号", prev: "—", market: "cn" },
+    { date: "08-13", name: "美国7月PPI", expect: "—", prev: "前值 同比5.5%", market: "us" },
+    { date: "08-13", name: "美国10年期国债拍卖；中芯国际财报", expect: "—", prev: "—", market: "us" },
+    { date: "08-14", name: "美国7月零售销售（恐怖数据）", expect: "—", prev: "前值 环比+0.2%", market: "us" },
+    { date: "08-14", name: "8月密歇根消费者信心；SEC 13F持仓截止披露", expect: "关注机构科技/能源配置", prev: "—", market: "us" }
   ],
   unlock: [
-    { date: "08-10", name: "陆家嘴", scale: "解禁 7.79亿股（占股本19.79%）", market: "cn" },
-    { date: "08-10", name: "天富龙", scale: "解禁 2205.73万股（占股本37.56%）", market: "cn" },
-    { date: "08-10", name: "电科蓝天", scale: "解禁 1000.47万股（占股本7.04%）", market: "cn" },
-    { date: "08-10", name: "碧兴物联", scale: "解禁 692.50万股（占股本12.88%）", market: "cn" },
-    { date: "08-10", name: "林平发展", scale: "解禁 38.03万股（占股本2.02%）", market: "cn" }
+    { date: "08-10", name: "陆家嘴", scale: "解禁 71.10亿（7.79亿股，占股本19.79%，上半年净利11.08亿+35.91%）", market: "cn" },
+    { date: "08-10", name: "盟固利", scale: "解禁 30.58亿（1.87亿股，占股本40.65%）", market: "cn" },
+    { date: "08-10", name: "凌玮科技", scale: "解禁 27.28亿（占股本26.41%）", market: "cn" },
+    { date: "08-10", name: "华能蒙电", scale: "解禁 5.36亿股（解禁股数第二）", market: "cn" },
+    { date: "08-10", name: "紫建电子", scale: "解禁 8.46亿（占股本25.33%）", market: "cn" },
+    { date: "08-10", name: "蓝箭电子", scale: "解禁 7.77亿（占股本15.76%）", market: "cn" },
+    { date: "08-10", name: "威力传动", scale: "解禁 5.17亿（占股本17.41%）", market: "cn" }
   ],
   earnings: [
+    { date: "08-10", name: "南京新百", summary: "预减 77.15%-78.90%（净利约3512-3805万）", sentiment: "down", market: "cn" },
+    { date: "08-10", name: "江淮汽车", summary: "上半年续亏（下周解禁股）", sentiment: "down", market: "cn" },
+    { date: "08-07", name: "天能股份", summary: "净利预降 65.46%-68.92%（硫酸涨价+政策调整）", sentiment: "down", market: "cn" },
+    { date: "08-07", name: "魅视科技", summary: "净利预降超七成（半导体项目存不确定性）", sentiment: "down", market: "cn" },
+    { date: "08-07", name: "闽灿坤B", summary: "由盈转亏（净利-2871万，-279%）", sentiment: "down", market: "cn" },
+    { date: "08-07", name: "金麒麟", summary: "净利 -83.94%", sentiment: "down", market: "cn" },
     { date: "08-06", name: "牧原股份", summary: "预亏57-67亿，由盈转亏（猪价-28%）", sentiment: "down", market: "cn" },
     { date: "08-06", name: "新希望", summary: "预亏16-18亿，由盈转亏", sentiment: "down", market: "cn" },
-    { date: "08-06", name: "金麒麟", summary: "净利 -83.94%", sentiment: "down", market: "cn" },
-    { date: "08-06", name: "闽灿坤B", summary: "由盈转亏（净利-2871万，-279%）", sentiment: "down", market: "cn" },
-    { date: "08-06", name: "天合光能", summary: "上半年亏损2.7亿，同比大幅减亏", sentiment: "down", market: "cn" },
     { date: "08-06", name: "百济神州", summary: "净利32.71亿 +627%，上调全年指引", sentiment: "up", market: "cn" },
     { date: "08-06", name: "百奥赛图", summary: "净利预增 391.87%-412.71%", sentiment: "up", market: "cn" },
     { date: "08-06", name: "爱丽家居", summary: "半年报预亏4050-3450万（10连板投机风险）", sentiment: "down", market: "cn" }
