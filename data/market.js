@@ -15,14 +15,14 @@
  *   2) westock-data：--market kr / 美股指数补充
  *   3) WebFetch/WebSearch 可靠站点兜底并注明来源：Investing.com(英为财情,指数实时页)、新浪财经全球行情、东方财富全球指数、同花顺国际财经、韩联社中文网(yna.cn)
  *
- * ★ 2026-08-09 校验：8/8-8/9 周末休市，三市场均为 8/7 收盘（KOSPI 6258.77 韩联社+neodata 双源确认；COMEX金 4401.3 +2.37%、WTI 77.08 -0.27% neodata 期货实时行情）
+ * ★ 2026-08-10 校验：周一开盘前——A股/美股为 8/7 收盘（neodata 结构化确认：纳指 26690.62 +1.30%、道指 54036.93 +0.28%、NVDA 223.96 +2.27%、TSLA 328.58 +2.83%、KOSPI 6258.77、三星 231000 +0.22%、SK海力士 1422000 -4.88%、现代 395500 -1.13%、KOSDAQ 798.81 -0.36%）；KOSPI 今日开盘 +0.8% 报 6306.33（新浪7x24 08:00）；WTI/COMEX金为 8/9 夜盘延时快照（WTI 78.84 +0.84% 与今晨媒体 +0.87% 吻合）
  */
 window.TID_MARKET = {
   cards: [
     { name: "上证指数",       change: 1.02, market: "cn" },
     { name: "深证成指",       change: 1.42, market: "cn" },
     { name: "创业板指",       change: 1.35, market: "cn" },
-    { name: "KOSPI",          change: -0.60, market: "kr" },
+    { name: "KOSPI",          change: 0.80, market: "kr" },
     { name: "KOSDAQ",         change: -0.36, market: "kr" },
     { name: "三星电子",       change: 0.22, market: "kr" },
     { name: "SK海力士",       change: -4.88, market: "kr" },
@@ -32,8 +32,8 @@ window.TID_MARKET = {
     { name: "道琼斯",         change: 0.28, market: "us" },
     { name: "英伟达",         change: 2.27, market: "us" },
     { name: "特斯拉",         change: 2.83, market: "us" },
-    { name: "WTI 原油",       change: -0.27, market: "us" },
-    { name: "COMEX黄金",      change: 2.37, market: "us" }
+    { name: "WTI 原油",       change: 0.84, market: "us" },
+    { name: "COMEX黄金",      change: 0.01, market: "us" }
   ],
   sectors: {
     asOf: "8/7 收盘",
@@ -56,7 +56,7 @@ window.TID_MARKET = {
       { name: "医药生物", amount: 88.5 },
       { name: "有色金属", amount: 40.3 }
     ],
-    rotation: "创新药+AI硬件双主线共振：CRO/医疗服务/PCB/CPO/锗镓领涨，主力净流入电子283亿/医药88亿居前；资金从银行/家电/数字货币撤离——风格明确切向「医药成长+AI算力」；周末关注韩股存储链（SK海力士54万亿扩产+三星锁产能LTA）对A股存储/PCB链的传导"
+    rotation: "周一消息面驱动：创新药（药明康德胜诉1260H初步禁令）+存储链（SK海力士710亿美元股东回报+V10 NAND键合、长鑫纳入MSCI+瑞银首覆70元、苹果测试长鑫DRAM）周末利好共振，科技催化周开启（宇树打新/长鑫入MSCI 8/10）；但美伊博弈中段今晨油价拉升（WTI一度+1.66%）或扰动石油链，且A股8/7中际旭创盘中跳水显示科技上方套牢盘压力未消，高开需防冲高回落"
   },
   top10: {
     asOf: "8/7 收盘",
