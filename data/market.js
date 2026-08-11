@@ -13,89 +13,75 @@
  * 韩/美行情数据源（2026-08-06 定稿，缺项逐级兜底）：
  *   1) neodata-financial-search：韩股个股（三星005930.KS/SK海力士000660.KS/现代005380.KS）、美股个股（NVDA/TSLA）、指数
  *   2) westock-data：--market kr / 美股指数补充
- *   3) WebFetch/WebSearch 可靠站点兜底并注明来源：Investing.com(英为财情,指数实时页)、新浪财经全球行情、东方财富全球指数、同花顺国际财经、韩联社中文网(yna.cn)
+ *   3) WebFetch/WebSearch 可靠站点兜底并注明来源：Investing.com(英为财情,指数实时页)、新浪财经全球行情、东方财富全球指数、同花顺国际财经、韩联社中文网(yna.cn)、朝鲜日报英文网(biz.chosun.com)、纽斯频(newspim)、BusinessKorea
  *
- * ★ 2026-08-10 校验：周一开盘前——A股/美股为 8/7 收盘（neodata 结构化确认：纳指 26690.62 +1.30%、道指 54036.93 +0.28%、NVDA 223.96 +2.27%、TSLA 328.58 +2.83%、KOSPI 6258.77、三星 231000 +0.22%、SK海力士 1422000 -4.88%、现代 395500 -1.13%、KOSDAQ 798.81 -0.36%）；KOSPI 今日开盘 +0.8% 报 6306.33（新浪7x24 08:00）；WTI/COMEX金为 8/9 夜盘延时快照（WTI 78.84 +0.84% 与今晨媒体 +0.87% 吻合）
+ * ★ 2026-08-11 校验：8/10（周一）收盘口径统一——A股（上证3966.59+0.67/深成指14316.96+0.04/创业板3537.21-0.73，证券时报）；韩股（KOSPI 6299.66+0.65、KOSDAQ 854.47+6.97、三星230000-0.43、SK海力士1420000-0.14、现代408000+3.16，韩联社/纽斯频）；美股（道指53975.98-0.11、纳指26605.36-0.32、标普7753.11-0.06、NVDA 217.55-2.86、TSLA 330.88+0.70、WTI 82.30+5.27、COMEX金4448.6+1.11，证券时报/东方财富）。8/11盘中：KOSPI 6339.54+0.63、三星+3.26%、SK海力士-0.42%、KOSDAQ 847.55-0.81（朝鲜日报11:07）；A股创业板指+1.48%转涨（11:09）
  */
 window.TID_MARKET = {
   cards: [
-    { name: "上证指数",       change: 1.02, market: "cn" },
-    { name: "深证成指",       change: 1.42, market: "cn" },
-    { name: "创业板指",       change: 1.35, market: "cn" },
-    { name: "KOSPI",          change: 0.80, market: "kr" },
-    { name: "KOSDAQ",         change: -0.36, market: "kr" },
-    { name: "三星电子",       change: 0.22, market: "kr" },
-    { name: "SK海力士",       change: -4.88, market: "kr" },
-    { name: "现代汽车",       change: -1.13, market: "kr" },
-    { name: "纳斯达克",       change: 1.30, market: "us" },
-    { name: "标普500",        change: 0.62, market: "us" },
-    { name: "道琼斯",         change: 0.28, market: "us" },
-    { name: "英伟达",         change: 2.27, market: "us" },
-    { name: "特斯拉",         change: 2.83, market: "us" },
-    { name: "WTI 原油",       change: 0.84, market: "us" },
-    { name: "COMEX黄金",      change: 0.01, market: "us" }
+    { name: "上证指数",       change: 0.67, market: "cn" },
+    { name: "深证成指",       change: 0.04, market: "cn" },
+    { name: "创业板指",       change: -0.73, market: "cn" },
+    { name: "KOSPI",          change: 0.65, market: "kr" },
+    { name: "KOSDAQ",         change: 6.97, market: "kr" },
+    { name: "三星电子",       change: -0.43, market: "kr" },
+    { name: "SK海力士",       change: -0.14, market: "kr" },
+    { name: "现代汽车",       change: 3.16, market: "kr" },
+    { name: "纳斯达克",       change: -0.32, market: "us" },
+    { name: "标普500",        change: -0.06, market: "us" },
+    { name: "道琼斯",         change: -0.11, market: "us" },
+    { name: "英伟达",         change: -2.86, market: "us" },
+    { name: "特斯拉",         change: 0.70, market: "us" },
+    { name: "WTI 原油",       change: 5.27, market: "us" },
+    { name: "COMEX黄金",      change: 1.11, market: "us" }
   ],
   sectors: {
-    asOf: "8/7 收盘",
+    asOf: "8/10 收盘",
     leaders: [
-      { name: "CRO",         change: 10.63 },
-      { name: "医疗服务",     change: 8.40 },
-      { name: "玻璃玻纤",     change: 7.11 },
-      { name: "锗镓概念",     change: 6.91 },
-      { name: "元件",         change: 6.74 }
+      { name: "贵金属",     change: 3.9 },
+      { name: "农林牧渔",   change: 3.14 },
+      { name: "食品饮料",   change: 2.51 },
+      { name: "纺织服饰",   change: 2.40 },
+      { name: "煤炭",       change: 2.0 }
     ],
     laggards: [
-      { name: "跨境支付", change: -1.82 },
-      { name: "数字货币", change: -1.70 },
-      { name: "财税数字化", change: -1.69 },
-      { name: "家用电器", change: -0.86 },
-      { name: "银行",     change: -0.65 }
+      { name: "通信",   change: -3.16 },
+      { name: "电子",   change: -0.49 },
+      { name: "计算机", change: -0.26 }
     ],
     flows: [
-      { name: "电子",     amount: 283.0 },
-      { name: "医药生物", amount: 88.5 },
-      { name: "有色金属", amount: 40.3 }
+      { name: "医药生物", amount: 68.0 },
+      { name: "基础化工", amount: 30.0 },
+      { name: "食品饮料", amount: 30.0 }
     ],
-    rotation: "周一消息面驱动：创新药（药明康德胜诉1260H初步禁令）+存储链（SK海力士710亿美元股东回报+V10 NAND键合、长鑫纳入MSCI+瑞银首覆70元、苹果测试长鑫DRAM）周末利好共振，科技催化周开启（宇树打新/长鑫入MSCI 8/10）；但美伊博弈中段今晨油价拉升（WTI一度+1.66%）或扰动石油链，且A股8/7中际旭创盘中跳水显示科技上方套牢盘压力未消，高开需防冲高回落"
+    rotation: "8/10高低切换明显：资金从高位科技（电子-211亿/通信-135亿净流出）切向消费/医药/贵金属（医药生物+68亿、农林牧渔+24亿），寒武纪-6.33%/中际旭创-6.01%拖累双创、上证五连阳距年线一步；贵金属近4%创3个月新高、军工尾盘异动（北方长龙20cm涨停）。8/11盘中科技修复（创业板指+1.48%转涨、江波龙+4.88%、MLCC抢料双星新材涨停）但存储/算力高位分歧未消——韩股三星8/11盘中+3.26%反弹联动A股存储链，警惕8/12美CPI（预期3.3%）与油价+5.27%（美伊+鹰派联储）的滞胀扰动；韩股注意：KOSDAQ 8/10单日+6.97%后8/11盘中回落-0.81%，存储杠杆监管后波动加大"
   },
   top10: {
-    asOf: "8/7 收盘",
+    asOf: "8/10 收盘（缺精确值的概念板块未列）",
     gainers: [
-      { name: "CRO",       change: 10.63 },
-      { name: "医疗服务",   change: 8.40 },
-      { name: "玻璃玻纤",   change: 7.11 },
-      { name: "锗镓概念",   change: 6.91 },
-      { name: "元件",       change: 6.74 },
-      { name: "电子布",     change: 6.64 },
-      { name: "电子树脂",   change: 6.62 },
-      { name: "减肥药",     change: 6.60 },
-      { name: "靶材",       change: 6.11 },
-      { name: "生物制品",   change: 6.06 }
+      { name: "贵金属",   change: 3.9 },
+      { name: "农林牧渔", change: 3.14 },
+      { name: "食品饮料", change: 2.51 },
+      { name: "纺织服饰", change: 2.40 },
+      { name: "煤炭",     change: 2.0 }
     ],
     losers: [
-      { name: "天津自贸区", change: -1.98 },
-      { name: "跨境支付",   change: -1.82 },
-      { name: "数字货币",   change: -1.70 },
-      { name: "财税数字化", change: -1.69 },
-      { name: "电子身份证", change: -1.69 },
-      { name: "数字水印",   change: -1.52 },
-      { name: "国产操作系统", change: -1.47 },
-      { name: "移动支付",   change: -1.36 },
-      { name: "家用电器",   change: -0.86 },
-      { name: "银行",       change: -0.65 }
+      { name: "通信",   change: -3.16 },
+      { name: "电子",   change: -0.49 },
+      { name: "计算机", change: -0.26 }
     ]
   },
   gauge: {
-    asOf: "8/7 收盘",
-    limitUp: 74,
-    limitDown: 4,
-    breakRate: 26.0,
+    asOf: "8/10 收盘（涨停/跌停）· 8/11 早盘（连板梯队）",
+    limitUp: 103,
+    limitDown: 5,
+    breakRate: null,
     ladder: [
-      { height: "4板",   stocks: ["百花医药", "云南锗业", "宝鼎科技", "汇绿生态", "沃格光电"] },
-      { height: "3板",   stocks: ["和远气体", "有研新材"] },
-      { height: "2板",   stocks: ["武汉凡谷", "通宇通讯", "景旺电子", "方正科技", "锴威特", "开开实业"] },
-      { height: "6天5板", stocks: ["宝鼎科技"] },
-      { height: "10天5板", stocks: ["汇绿生态"] }
+      { height: "12天11板(停牌核查)", stocks: ["爱丽家居"] },
+      { height: "6板",   stocks: ["百花医药"] },
+      { height: "5板",   stocks: ["宝鼎科技"] },
+      { height: "3板",   stocks: ["高争民爆", "开开实业"] },
+      { height: "2板",   stocks: ["瑞康医药", "哈三联", "百普赛斯", "海正药业", "先导基电", "哈药股份", "秦安股份"] }
     ]
   }
 };
