@@ -6,6 +6,7 @@
  *   window.TID_MARKET    行情盘面          data/market.js
  *   window.TID_BRIEF     滚动周报情报流    data/brief.js
  *   window.TID_CALENDAR  事件与风险日历    data/calendar.js
+ *   window.TID_REC       当日推荐(盘前)    data/rec.js
  *
  * 职责：读取数据 → 渲染各区块 DOM → 绑定交互（市场Tab/情绪筛选/折叠/倒计时/交易笔记）
  * 维护：每日自动化只更新 data/*.js，本文件与 index.html / main.css 保持稳定。
@@ -45,6 +46,7 @@
   const MARKET = window.TID_MARKET || { cards: [], sectors: null, top10: {}, gauge: {} };
   const BRIEF = window.TID_BRIEF || { quick: [], yesterday: [], week: {}, lastWeek: {}, summary: '' };
   const CALENDAR = window.TID_CALENDAR || { macro: [], unlock: [], earnings: [] };
+  const REC = window.TID_REC || null;
 
   /* ==========================================================================
    * 1. 页头：日期 / 快照时点 / 市场状态与倒计时
@@ -259,6 +261,56 @@
     const table = el('table', 'mini-table');
     table.innerHTML = headHtml + rows.map((r) => '<tr>' + rowTpl(r) + '</tr>').join('');
     host.appendChild(table);
+  }
+
+  /* ==========================================================================
+   * 5.5 今日推荐（盘前计算：消息面传导 + 技术面验证）
+   *    数据来自 data/rec.js（每日 08:15 整合自动化覆盖）；空 → 空态
+   * ========================================================================== */
+
+  function renderRec() {
+    const host = $('#rec-body');
+    host.innerHTML = '';
+    $('#rec-asof').textContent = '';
+    if (!REC || !REC.sectors || !REC.sectors.length) {
+      host.appendChild(emptyState('今日暂无推荐（每日 08:15 自动化计算：消息面板块传导 + 技术面验证；节假日休市无推荐）。'));
+      return;
+    }
+    $('#rec-asof').textContent = REC.asOf ? ' · ' + REC.asOf : '';
+
+    // 一句话依据
+    if (REC.basis) {
+      host.appendChild(el('div', 'rec-basis', '依据：<b>' + esc(REC.basis) + '</b>'));
+    }
+    // 传导链
+    (REC.chains || []).forEach((c) => {
+      host.appendChild(el('div', 'rec-chain', '⇢ ' + esc(c)));
+    });
+    // 推荐板块 + 代表个股
+    (REC.sectors || []).forEach((s) => {
+      const box = el('div', 'rec-sector');
+      box.appendChild(el('div', 'rec-sector-name', '🏁 ' + esc(s.name)));
+      if (s.logic) box.appendChild(el('div', 'rec-sector-logic', esc(s.logic)));
+      (s.stocks || []).forEach((st) => {
+        const mk = st.market || 'cn';
+        const row = el('div', 'rec-stock');
+        row.appendChild(el('span', 'mk mk-' + mk, MARKET_LABEL[mk] || '中'));
+        let html = '<b>' + esc(st.name) + '</b>' +
+          (st.code ? ' <span class="code">' + esc(st.code) + '</span>' : '') +
+          ' <span class="analysis">' + esc(st.logic || '') + '</span>';
+        row.appendChild(el('p', null, html));
+        if (st.tech) row.appendChild(el('span', 'rec-tech', '📐 ' + esc(st.tech)));
+        box.appendChild(row);
+      });
+      host.appendChild(box);
+    });
+    // 风险提示
+    if (REC.risks && REC.risks.length) {
+      host.appendChild(el('div', 'rec-risk', '⚠ 风险：' +
+        REC.risks.map((r) => esc(r)).join('；')));
+    }
+    // 免责声明
+    host.appendChild(el('div', 'rec-disl', esc(REC.disclaimer || '以上为公开信息整理与逻辑推演，不构成投资建议')));
   }
 
   /* ==========================================================================
@@ -504,6 +556,7 @@
     renderTop10();
     renderGauge();
     renderCalendar();
+    renderRec();
 
     // 情报流三区（计数模板在 HTML 中预置，applyFilters 时替换 {n}）
     const yBox = $('#yesterday-list');
