@@ -66,6 +66,12 @@
     <div class="card" id="gauge-body"></div>
   </section>
 
+  <!-- 🎯 今日推荐（盘前计算：消息面传导 + 技术面验证） -->
+  <section>
+    <div class="sec-title">🎯 今日推荐<span class="asof" id="rec-asof"></span></div>
+    <div class="card" id="rec-body"></div>
+  </section>
+
   <!-- 📆 事件与风险（宏观日历 / 解禁 / 业绩预告雷区） -->
   <section data-market="cn">
     <div class="sec-title">📆 本周事件与风险</div>
@@ -133,11 +139,12 @@
 
 <button class="to-top" id="to-top" title="返回顶部">↑</button>
 
-<!-- 数据层（免服务器、file:// 直开可用；每日自动化只更新这 4 个文件） -->
+<!-- 数据层（免服务器、file:// 直开可用；每日自动化只更新这 5 个文件） -->
 <script src="data/meta.js"></script>
 <script src="data/market.js"></script>
 <script src="data/brief.js"></script>
 <script src="data/calendar.js"></script>
+<script src="data/rec.js"></script>
 <!-- 渲染引擎 -->
 <script src="assets/js/app.js"></script>
 </body>
